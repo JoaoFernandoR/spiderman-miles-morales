@@ -1,3 +1,5 @@
+import Tilt from "react-parallax-tilt";
+
 import {
   Main,
   Container,
@@ -40,7 +42,9 @@ const MainContainer = () => {
           </ContainerIcons>
         </ContainerOne>
         <ContainerTwo>
-          <SpiderMan src={SpiderImg} alt="Spider Man with Sparking hand" />
+          <Tilt tiltMaxAngleY={5} tiltMaxAngleX={5}>
+            <SpiderMan src={SpiderImg} alt="Spider Man with Sparking hand" />
+          </Tilt>
         </ContainerTwo>
       </Container>
     </Main>

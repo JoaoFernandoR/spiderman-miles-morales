@@ -1,3 +1,4 @@
+import { useState } from "react";
 import LogoSpider from "../../../../assets/LogoSpider.svg";
 
 import {
@@ -12,60 +13,86 @@ import {
   YoutubeIcon,
   InstagramIcon,
   HamburguerIcon,
+  MenuHidden,
 } from "./styles";
 
 const HeaderComponent = () => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
-    <Header>
-      <LogoDiv>
-        <img src={LogoSpider} alt=" Logo Do Homem Aranha" />
-        <Menu>
-          <MenuList>
+    <>
+      <Header>
+        <LogoDiv>
+          <img src={LogoSpider} alt=" Logo Do Homem Aranha" />
+          <Menu>
+            <MenuList>
+              <a href="/#">
+                <Item> HOME </Item>
+              </a>
+            </MenuList>
+            <MenuList>
+              <a href="/#">
+                <Item> STORY </Item>
+              </a>
+            </MenuList>
+            <MenuList>
+              <a href="/#">
+                <Item> WALLPAPERS </Item>
+              </a>
+            </MenuList>
+            <MenuList>
+              <a href="/#">
+                <Item> #BEYOURSELF </Item>
+              </a>
+            </MenuList>
+          </Menu>
+        </LogoDiv>
+        <Social>
+          <li>
             <a href="/#">
-              <Item> HOME </Item>
+              <FacebookIcon size={24} />
             </a>
-          </MenuList>
-          <MenuList>
+          </li>
+          <li>
             <a href="/#">
-              <Item> STORY </Item>
+              <TwitterIcon size={24} />
             </a>
-          </MenuList>
-          <MenuList>
+          </li>
+          <li>
             <a href="/#">
-              <Item> WALLPAPERS </Item>
+              <YoutubeIcon size={24} />
             </a>
-          </MenuList>
-          <MenuList>
+          </li>
+          <li>
             <a href="/#">
-              <Item> #BEYOURSELF </Item>
+              <InstagramIcon size={24} />
             </a>
-          </MenuList>
-        </Menu>
-      </LogoDiv>
-      <Social>
-        <li>
+          </li>
+        </Social>
+        <HamburguerIcon size={42} onClick={() => setIsOpen(!isOpen)} />
+      </Header>
+      <MenuHidden isOpen={isOpen}>
+        <MenuList>
           <a href="/#">
-            <FacebookIcon size={24} />
+            <Item> HOME </Item>
           </a>
-        </li>
-        <li>
+        </MenuList>
+        <MenuList>
           <a href="/#">
-            <TwitterIcon size={24} />
+            <Item> STORY </Item>
           </a>
-        </li>
-        <li>
+        </MenuList>
+        <MenuList>
           <a href="/#">
-            <YoutubeIcon size={24} />
+            <Item> WALLPAPERS </Item>
           </a>
-        </li>
-        <li>
+        </MenuList>
+        <MenuList>
           <a href="/#">
-            <InstagramIcon size={24} />
+            <Item> #BEYOURSELF </Item>
           </a>
-        </li>
-      </Social>
-      <HamburguerIcon size={42} />
-    </Header>
+        </MenuList>
+      </MenuHidden>
+    </>
   );
 };
 

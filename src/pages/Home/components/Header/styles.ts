@@ -11,6 +11,10 @@ import { MenuAltRight } from "@styled-icons/boxicons-regular";
 
 import { grayTwo, white, redLight } from "../../../../shared/Colors/colors";
 
+interface IMenuHidden {
+  isOpen: boolean;
+}
+
 export const Header = styled.header`
   padding: 2rem;
   max-width: 1440px;
@@ -123,5 +127,17 @@ export const HamburguerIcon = styled(MenuAltRight)`
   @media (max-width: 960px) {
     display: flex;
     width: 80px;
+  }
+`;
+
+export const MenuHidden = styled.div<IMenuHidden>`
+  width: 100%;
+
+  display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
+  flex-direction: column;
+  align-items: center;
+
+  @media (min-width: 960px) {
+    display: none;
   }
 `;
